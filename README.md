@@ -161,7 +161,7 @@ Tendo feito isso, no arquivo vue vamos inserir as seguintes linhas de código:
 
 - `Script:` Bem como no HTML usamos a tag <script> para linkdar uma página js ou até mesmo inserir blocos de códigos js, aqui iremos usar para marcação lógica javascript.
 
-    - Precisamos exportar o template que criamos. Assim como, no React quando fazemos `xport default app = () -> {}`.
+    - Precisamos exportar o template que criamos. Assim como, no React quando fazemos `export default app = () -> {}`.
     - `Name:`  Se eu mudar o nome daqui para qualquer outro não vai importar, porque eu estou chamando a página corretamente em "main", mas como boas práticas é importante cada nomeação fazer jus a sua referência.
     - `Components:`  Criando um outro objeto declarando ao vue que usaremos components
 
@@ -223,3 +223,68 @@ Tendo feito isso, no arquivo vue vamos inserir as seguintes linhas de código:
 ```
 
 ## Dados em Componentes (data)
+
+- Os components podem conter dados;
+- Podemos `inicializar já com algum valor` e também modificar durante a execução do programa;
+- Os dados ficam em uma função chamada `data`;
+- Esta função deve retornar os dados em `formato de objeto`;
+
+### Exemplo 02: Inserindo dados nos componentes
+
+- `Data():` É um método específico, no qual tem como responsabilidade expor dados no componente onde está junto no arquivo.
+    - Sendo uma função, como qualquer outra, será evocada com o ();
+    - Os dados só podem ser utilizados dentro do próprio componente, não pode exportar.
+
+```vue
+
+<template>
+    <!--Devemos colcoar um elemento pai-->
+    <div id="first-component">
+        <h1>Hello Vue!!</h1>
+        <p>I'm {{ name }} and my ocupation is {{ ocupation }}</p>
+    </div>
+</template>
+
+<script>
+    export default {
+        name: 'FirstComponent',
+        // Evocada como uma função com ()
+        data () {
+            return {
+                name: "Samara",
+                ocupation: "Developer FrontEnd"
+            }
+        }
+    }
+</script>
+
+```
+
+- Só porque o `App.vue` abriga componentes não quer dizer que ele não possa ter o seu próprio data também.
+
+```vue
+
+<template>
+  <div id="app">
+    <FirstComponent/>
+    Test: {{test }}
+  </div>
+</template>
+
+<script>
+  import FirstComponent from './components/FirstComponent.vue';
+
+  export default {
+    name: 'App',
+    components: {
+      FirstComponent
+    },
+    data(){
+      return {
+        test: "Testing"
+      }
+    }
+  }
+</script>
+
+```

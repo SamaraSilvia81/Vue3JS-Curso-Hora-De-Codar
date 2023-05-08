@@ -1,7 +1,10 @@
 <template>
-  <!--<h1>Hello World</h1>-->
-  <!--Essa chamada funciona com letras minusculas e um (-) separando tbm-->
-  <FirstComponent/>
+  <div id="app">
+    <!--<h1>Hello World</h1>-->
+    <!--Essa chamada funciona com letras minusculas e um (-) separando tbm-->
+    <FirstComponent/>
+    Test: {{test }}
+  </div>
 </template>
 
 <script>
@@ -13,6 +16,11 @@
     // Criando um outro objeto declarando ao vue que usaremos components
     components: {
       FirstComponent
+    },
+    data(){
+      return {
+        test: "Testing"
+      }
     }
   }
 </script>
