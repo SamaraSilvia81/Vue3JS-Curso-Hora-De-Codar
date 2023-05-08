@@ -3,8 +3,15 @@
 const MyNameApp = {
     data() {
         return  {
-            name: "Samara",
-            age: 19
+            name: "",
+            age: 19,
+            input_name: ""
+        }
+    },
+    methods: {
+        submitForm(e){
+            e.preventDefault();
+            this.name = this.input_name // Atribuição de valores - Alteração simultânea
         }
     }
 }

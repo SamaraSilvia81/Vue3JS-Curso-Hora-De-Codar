@@ -12,7 +12,17 @@
     <!--Onde o Vue será inicializado-->
     <!--Ele precisar ser inicializado em alguma página-->
     <div id="app">
-        <p> My name is: {{name}} and i'm {{age}} </p>
+         <!--Input e Data Binding-->
+         <form action="" id="app-form">
+            <!--Forma de comunicar ao vue que o dado exposto será salvo em alguma parte dele -->
+            <input type="text" v-model="input_name" placeholder="Type your name">
+            <!--Diretiva de click-->
+            <!--Emitir uma chamada para o vue que procurará por essa instância-->
+            <input type="submit" value="Send" v-on:click="submitForm">
+        </form>
+        <p> My name is: {{name}} </p>
+        <!--Crio um dado e ele reflete na minha aplicação-->
+        <p> Data Binding: {{input_name}} </p>
     </div>
 </body>
 </html>
