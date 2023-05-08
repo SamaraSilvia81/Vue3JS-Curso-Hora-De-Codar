@@ -119,7 +119,107 @@ Para a exemplicação do `Data Binding` iremos criar um formulário padrão do H
 <p> Data Binding: {{input_name}} </p>
 ```
 
-
 ## Utilizando o Vue CLI
+
+- O `CLI` é uma ferramenta de linha de comando do VUE;
+- Possibilita `criar e configurar` projetos de forma mais avançada;
+- `Por exemplo:` Adicionar o Vue Router desde a instalação do projeto;
+- Isso flexibiliza muito as coisas, vamos então instalar o Vue CLI e testar ele!
+
 ## Criando Componentes 
+
+- É por meio de `Componentes` que podemos dividir o nosso layout em partes;
+- O nível de abstratação e reutilização de código pode ser escolhida
+- `Cada componente tem a sua responsabilidade`, por exemplo: um componente que é uma tabela e outro que é um rodapé;
+- Dividir as entidades desta maneira deixa o projeto com uma `separação de responsabilidades` maior;
+- De certa forma, os componentes respeitam a 1° princípio do acrônimo SOLID - `Single Responsibility Principle` - , que estabelece que uma classe deve ter apenas uma única responsabilidade, o que pode tornar o código mais fácil de entender, testar e manter.
+- Cada um tendo seu CSS e também os dados que manipula;
+
+### Exemplo 01: FirstComponent
+
+Antes de começarmos a criar vamos deletar alguns arquivos vue.js para estruturarmos do zero:
+
+- Todos dentro da pasta components;
+- Todos dentro da pasta views;
+- Limpar o arquivo App.vue
+
+Tendo feito isso, no arquivo vue vamos inserir as seguintes linhas de código:
+
+- `Template:` É uma seção de código que descreve a estrutura e a aparência de uma página web ou componente. Ele contém o HTML, CSS e marcações de dados do Vue que definem a aparência e o comportamento de um componente.
+    - É uma tag essencial para determinar um componente
+    - Seria o Return do React ou o Body do HTML
+
+```vue
+
+<!--App.vue-->
+
+<template>
+  <h1>Hello World</h1>
+</template>
+
+```
+
+- `Script:` Bem como no HTML usamos a tag <script> para linkdar uma página js ou até mesmo inserir blocos de códigos js, aqui iremos usar para marcação lógica javascript.
+
+    - Precisamos exportar o template que criamos. Assim como, no React quando fazemos `xport default app = () -> {}`.
+    - `Name:`  Se eu mudar o nome daqui para qualquer outro não vai importar, porque eu estou chamando a página corretamente em "main", mas como boas práticas é importante cada nomeação fazer jus a sua referência.
+    - `Components:`  Criando um outro objeto declarando ao vue que usaremos components
+
+```vue
+
+<!--App.vue-->
+
+<script>
+  import FirstComponent from './components/FirstComponent.vue';
+
+  export default {
+    name: 'App',
+    components: {
+      FirstComponent
+    }
+  }
+</script>
+
+```
+
+- `Components:`  Criando um outro objeto declarando ao vue que usaremos components
+
+```vue
+
+<!--App.vue-->
+
+<template>
+  <!--Essa chamada funciona com letras minusculas e um (-) separando tbm-->
+  <FirstComponent/> <!--Devemos chamar o componente importado-->
+</template>
+
+<script>
+  import FirstComponent from './components/FirstComponent.vue';
+
+  export default {
+    name: 'App',
+    components: {
+      FirstComponent
+    }
+  }
+</script>
+
+```
+
+```vue
+
+<!--FirstComponent.vue-->
+
+<template>
+    <h1>Hello Vue!!</h1>
+</template>
+
+<script>
+    export default {
+        name: 'FirstComponent'
+    }
+</script>
+
+```
+
 ## Dados em Componentes (data)
