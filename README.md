@@ -119,7 +119,12 @@ Para a exemplicação do `Data Binding` iremos criar um formulário padrão do H
 <p> Data Binding: {{input_name}} </p>
 ```
 
-
 ## Utilizando o Vue CLI
+
+- O `CLI` é uma ferramenta de linha de comando do VUE;
+- Possibilita `criar e configurar` projetos de forma mais avançada;
+- `Por exemplo:` Adicionar o Vue Router desde a instalação do projeto;
+- Isso flexibiliza muito as coisas, vamos então instalar o Vue CLI e testar ele!
+
 ## Criando Componentes 
 ## Dados em Componentes (data)
