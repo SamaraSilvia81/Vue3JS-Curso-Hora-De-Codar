@@ -1,5 +1,6 @@
 <template>
   <div id="app">
+    <Header/>
     <FirstComponent/>
     <LyfeCycle/>
     <Person/>
@@ -10,6 +11,7 @@
 <script>
 
   import FirstComponent from './components/FirstComponent.vue';
+  import Header from './components/Header.vue';
   import LyfeCycle from './components/LyfeCycle.vue';
   import Person from './components/Person.vue';
 
@@ -19,7 +21,8 @@
     components: {
       FirstComponent,
       LyfeCycle,
-      Person
+      Person,
+      Header
     },
 
     data(){

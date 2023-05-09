@@ -16,6 +16,14 @@ img {
   border-radius: 100%; */
 }
 
+button{
+  padding: 0.5rem;
+  margin: 1rem 0;
+  color: #f8f8f8;
+  border-color: transparent;
+  background-color: hsla(160, 100%, 37%, 1);
+}
+
 span, 
 a,
 .green {

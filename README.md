@@ -663,3 +663,15 @@ export default {
     - Associar métodos a eventos como o `@click`;
     - `Alterar dados` por meio dos métodos;
     - E atrelar os métodos aos `LyfeCycleHooks`.
+
+## CSS Scoped e CSS Global
+
+- O `CSS` no vue pode ser dividido em duas categorias:
+- `Global:` Onde definimos no App, por exemplo, e se aplica a todos os elementos;
+- `Scoped:` Onde cada componente pode ter seu estilo, deixando mais fácil de personalizar os elementos;
+- Geralmente utilizamos o scopped para estilizar os componentes inidivualmente.
+- Podemos estilizar de cima para baixo, no qual o pai estiliza os seus filhos e de baixo para cima que gera bagunça.
+
+Obs:  Se tentarmos estilizar algo no App.vue, junto com a importação do main.css vai ter conflito e o main terá mais poder. A não ser que coloquemos o `scoped` e a propriedade que tiver no main, nós a repetirmos, mas como utro estilo. Então, esse novo estilo ganha nas regras de seletor, ou seja, substitue o global.
+
+- Podemos fazer o global no `app.vue` ou criando um arquivo `main.vue`
