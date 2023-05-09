@@ -8,8 +8,8 @@
 
 <script>
 
-    import Info from '../components/Info.vue';
-    import Form from '../components/Form.vue';
+    import Info from './Info.vue';
+    import Form from './Form.vue';
 
     export default {
         name: "Person",

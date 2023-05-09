@@ -426,3 +426,73 @@ import Info from '../components/Info.vue';
 - Analisando o comportamento de `Person` e `Info` podemos perceber que `App` também é um componente.
 
 - Ao reutilizarmos um componente podemos chamá-lo para representar ao diferente, como no exemplo de "Form".
+
+## Diretivas
+
+- As `diretivas `no Vue.js são instruções especiais que são usadas para manipular o DOM (Document Object Model) de forma declarativa.
+- Existem muitas delas como `v-if`, `v-for`, `v-show`...
+- A sua sintaxe é sempre `v - none`, sendo "none" alguma lógica que você queira implementar como for, else..., mas lembre-se que tem que ser algo que exista no VUE, não vale imventar não.
+- Pode mudar a exibição de uma parte do layout, baseada em uma condição;
+- `As diretivas são essenciais` para uma aplicação dinâmica;
+- Podemos alterar a lógica pelos valores inseridos em `data`.
+
+### Exemplos 
+
+- `v-if`, `v-else-if` e `v-else`: São usados para implementar a lógica de condicionais.
+    - Tudo que estiver dentro de "" é lógica JS
+    - If sempre precisa do else
+
+```vue
+
+<template>
+    <div id="info-person">
+        <!--As diretivas permite implemntar lógica js no html-->
+        <p v-if="is_working">I'm working actually with Developer Frontend</p>
+        <p v-else>I'm looking for new opportunities!</p>
+    </div>
+</template>
+
+<script lang="ts">
+    export default {
+        name: "Info",
+        data(){
+            return {
+                is_working: true,
+            }
+        }
+    }
+</script>
+
+```
+
+- `v-show`: Caso não queira usar o if pode usar ele. Ele funciona como um togle
+
+```vue
+
+<template>
+    <div id="info-person">
+        <p v-if="is_working">I'm working actually with Developer Frontend</p>
+        <p v-else>I'm looking for new opportunities!</p>
+        <p>I use this technologies at work: </p>
+        <ul>
+            <li>JavaScript</li>
+            <li>ReactJS</li>
+            <li>VueJS</li>
+        </ul>
+        <p v-show="show_email">Send a message for : {{ email }} </p>
+    </div>
+</template>
+
+<script lang="ts">
+    export default {
+        name: "Info",
+        data(){
+            return {
+                is_working: true,
+                show_email: true,
+                email: "info@gmail.com"
+            }
+        }
+    }
+</script>
+```
