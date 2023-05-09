@@ -1,8 +1,9 @@
 <template>
   <div id="app">
     <FirstComponent/>
-    <p>The data app is {{ test }}</p>
-    <LyfeCycle/>
+    <Person/>
+    <!-- <p>The data app is <span> {{ test }} </span></p> -->
+    <!-- <LyfeCycle/> -->
   </div>
 </template>
 
@@ -10,13 +11,15 @@
 
   import FirstComponent from './components/FirstComponent.vue';
   import LyfeCycle from './components/LyfeCycle.vue';
+  import Person from './components/Person.vue';
 
   export default {
     name: 'App',
 
     components: {
       FirstComponent,
-      LyfeCycle
+      LyfeCycle,
+      Person
     },
 
     data(){

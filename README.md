@@ -331,3 +331,98 @@ export default {
 </script>
 
 ```
+
+## Hierarquia de Componentes
+
+- É comum `componentes terem outros componentes`que dependem deles;
+- Ou seja, criamos uma `árvore de componentes`;
+- Precisamos tomar cuidado para isso não virar uma `bagunça`;
+- Com essa divisão de componentes em subcomponentes, separamos mais ainda as responsabilidades de cada um dos componentes;
+- A ideia da componentização é que quando um determinado recurso se é utilizado mais de uma vez e em lugares diferentes é interessante se criar um componente disso.
+
+### Exemplo 03: Person e Info
+
+- Vamos criar um componente `Person.vue`, no quaal dentro dele estará outro componente para exportar informações.
+
+```vue
+<template>
+    <!--Descrever uma pessoa-->
+    <div id="info-person">
+        <p>I'm working actually with Developer Frontend</p>
+        <p>I use this technologies at work: </p>
+        <ul>
+            <li>JavaScript</li>
+            <li>ReactJS</li>
+            <li>VueJS</li>
+        </ul>
+    </div>
+</template>
+
+<script lang="ts">
+    export default {
+        name: "Info"
+    }
+</script>
+```
+
+```vue 
+
+<!--Person.vue-->
+
+<template>
+    <div id="person">
+        <h2>Esta é a descrição da pessoa <span>{{ name }}</span> </h2>
+        <Info/>
+    </div>
+</template>
+
+<script>
+
+import Info from '../components/Info.vue';
+
+    export default {
+        name: "Person",
+        // Se eu coloco components embaixo não é renderizado
+        components:{
+            Info
+        },
+        data(){
+            return{
+                name: "Samara",
+            }
+        }
+    }
+</script>
+
+```
+
+- `Lang="ts":` Esse é um termo colocado quando um _export default_ não tem um _data()_ apenas o name do arquivo, por isso o TypeScript é acionado.
+
+```vue 
+
+<!--Info.vue-->
+
+<template>
+    <!--Descrever uma pessoa-->
+    <div id="info-person">
+        <p>I'm working actually with Developer Frontend</p>
+        <p>I use this technologies at work: </p>
+        <ul>
+            <li>JavaScript</li>
+            <li>ReactJS</li>
+            <li>VueJS</li>
+        </ul>
+    </div>
+</template>
+
+<script lang="ts">
+    export default {
+        name: "Info"
+    }
+</script>
+
+```
+
+- Analisando o comportamento de `Person` e `Info` podemos perceber que `App` também é um componente.
+
+- Ao reutilizarmos um componente podemos chamá-lo para representar ao diferente, como no exemplo de "Form".

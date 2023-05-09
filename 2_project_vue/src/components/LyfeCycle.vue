@@ -1,5 +1,5 @@
 <template>
-    <h1>My name is: {{ name }}</h1>
+    <h1>My name is <span>{{ name }}</span></h1>
 </template>
 
 <script>

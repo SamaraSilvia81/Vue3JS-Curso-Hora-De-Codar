@@ -2,7 +2,7 @@
     <!--Devemos colcoar um elemento pai-->
     <div id="first-component">
         <h1>Hello Vue!!</h1>
-        <p>I'm {{ name }} and my ocupation is {{ ocupation }}</p>
+        <p>I'm <span> {{ name }} </span> and my ocupation is <span> {{ ocupation }} </span></p>
     </div>
 </template>
 
