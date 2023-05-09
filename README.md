@@ -288,3 +288,46 @@ Tendo feito isso, no arquivo vue vamos inserir as seguintes linhas de código:
 </script>
 
 ```
+
+## Lyfe Cycle Hooks
+
+- Os `Life Cycle Hooks` são eventos que podem ser ativados em determinadas partes ou momentos da execução do programa;
+- Exemplo: `created` - Aqui teremos um hook quando uma view ou componente for criada.
+- Executa o código a partir do momento que o componente é criado;
+- Estes gatilhos são interessantes para alterar a aplicação em diversas etapas diferentes;
+
+```vue
+
+<template>
+    <h1>My name is: {{ name }}</h1>
+</template>
+
+<script>
+export default {
+    name: 'LyfeCycle',
+    data() {
+        return {
+            name: "I don't know yet"
+        }
+    },
+    // Hook que vai refletir na minha aplicação
+    // Me ajudará a tornar dinâmico os meus dados
+    created(){
+        // this.name = "Samara"
+        // Ao fazer isso passamos por cima do "mounted"
+        setTimeout(() => {
+            this.name = "Samara"
+        }, 1000)
+    },
+    // Hook que está acima da hierarquia
+    
+    mounted(){
+        // Isso nos ajuda a vê melhor o que está acontecendo
+        setTimeout(() => {
+            this.name = "Matheus"
+        }, 2000)
+    }
+}
+</script>
+
+```
