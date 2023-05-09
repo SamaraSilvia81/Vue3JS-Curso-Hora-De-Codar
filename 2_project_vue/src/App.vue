@@ -1,9 +1,9 @@
 <template>
   <div id="app">
     <FirstComponent/>
+    <LyfeCycle/>
     <Person/>
-    <!-- <p>The data app is <span> {{ test }} </span></p> -->
-    <!-- <LyfeCycle/> -->
+    <p>The data app is <span> {{ test }} </span></p>
   </div>
 </template>
 

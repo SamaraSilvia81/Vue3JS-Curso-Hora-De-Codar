@@ -566,3 +566,100 @@ import Info from '../components/Info.vue';
 </script>
 
 ```
+
+## Métodos 
+
+- Os `métodos` do Vue são como `funções`
+- Podmeos `executá-los baseados em eventos` ou por alguma lógica da aplicação;
+- Eles ficam em um objeto chamado `methods`;
+- Onde criamos as funções que posteriormente serão executadas;
+
+- `methods:{}`: Com os métodos pudesse fazer com que as propriedades em data() pudesssem ser modificadas.
+    - `@click=""`: Directiva para função de click
+
+```vue
+
+<!--Info.vue-->
+
+<template>
+    <!--Descrever uma pessoa-->
+    <div id="info-person">
+        <div class="show-email">
+            <!--Directiva para função de click-->
+            <button @click="showEmail">{{ textButton }}</button>
+        </div>
+        <p v-show="show_email">Send a message for : {{ email }} </p>
+    </div>
+</template>
+
+<script lang="ts">
+
+
+    export default {
+        name: "Info",
+        data(){
+            return {
+                show_email: false,
+                email: "info@gmail.com",
+                textButton: "Show E-mail"
+            }
+        },
+        methods:{
+            showEmail(){
+                this.show_email = !this.show_email;
+                if(!this.show_email){
+                    this.textButton = "Show E-mail"
+                } else {
+                    this.textButton = "Hide E-mail"
+                }
+            }
+        }
+    }
+</script>
+
+```
+
+- Podemos também incorporar eventos dentro dos `LyfeCycleHooks`
+
+```vue
+
+<!--LyfeCycle.vue-->
+
+<template>
+    <h1>My name is <span>{{ name }}</span></h1>
+</template>
+
+<script>
+export default {
+    name: 'LyfeCycle',
+    data() {
+        return {
+            name: "I don't know yet"
+        }
+    },
+    created(){
+        setTimeout(() => {
+            this.name = "Samara"
+        }, 1000)
+
+        this.lifeCycle()
+    },
+    mounted(){
+        setTimeout(() => {
+            this.name = "Matheus"
+        }, 2000)
+    },
+    methods: {
+        lifeCycle(){
+            console.log("Executed")
+        }
+    }
+}
+</script>
+
+```
+
+- Com os exemplos mostrados vimos que podemos:
+    - Associar métodos a eventos como o `@click`;
+    - `Alterar dados` por meio dos métodos;
+    - E atrelar os métodos aos `LyfeCycleHooks`.

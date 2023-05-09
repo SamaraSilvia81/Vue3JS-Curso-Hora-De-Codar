@@ -18,6 +18,8 @@ export default {
         setTimeout(() => {
             this.name = "Samara"
         }, 1000)
+
+        this.lifeCycle()
     },
     // Hook que está acima da hierarquia
     mounted(){
@@ -25,6 +27,11 @@ export default {
         setTimeout(() => {
             this.name = "Matheus"
         }, 2000)
+    },
+    methods: {
+        lifeCycle(){
+            console.log("Executed")
+        }
     }
 }
 </script>
