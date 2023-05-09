@@ -496,3 +496,73 @@ import Info from '../components/Info.vue';
     }
 </script>
 ```
+
+## Atributos Dinâmicos
+
+- Os `argumentos são valores dinâmicos` que podem ser inseridos em:
+    - `Diretivas:` baseados nestes valores para executar um determinado comportamento;
+    - `Atribuitos:` mudar URL de links ou src de imagens;
+- Essenciais para alterar a experiência do usuário no uso da aplicação;
+
+### Exemplos: Picture e Email 
+
+- `v-bind:` É uma diretiva usada para atribuir dinamicidade aos atributos/argumentados, de modo que possamos usar dados do data() sem chamá-los diretamente.
+
+```vue
+
+<!--Info.vue-->
+
+<template>
+    <!--Descrever uma pessoa-->
+    <div id="info-person">
+        <Picture/>
+        <!--Usamos o v-bind, se não a url que passamos estaria ativa na própria tag e queremos que ela seja apenas uma referência. Assim como, ocorre com "is_working"-->
+        <p>If you want acess my portfolio <a v-bind:href="my_link" target="_blank"> just click here </a> </p>
+    </div>
+</template>
+
+<script lang="ts">
+
+    import Picture from './Picture.vue';
+
+    export default {
+        name: "Info",
+        components:{
+            Picture
+        },
+        data(){
+            return {
+                my_link: "http://google.com"
+            }
+        }
+    }
+</script>
+
+```
+
+- `:` Importante ressaltar que o `v-bind` também possue essa nomecnlatura mais breve.
+
+```vue
+
+<!--Picture.vue-->
+
+<template>
+    <div id="picture">
+        <!--Podemos encurtar v-bind só colocando :-->
+        <img :src="avatar" :alt="description">
+    </div>
+</template>
+
+<script lang="ts">
+    export default {
+        name: "Picture",
+        data(){
+            return {
+                avatar: "../img/avatar.jpg",
+                description: "Avatar developer"
+            }
+        }
+    }
+</script>
+
+```
